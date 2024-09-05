@@ -1,0 +1,36 @@
+<!-- <label for="ingredient-choice">Choose an ingredient:</label>
+<input
+  list="ingredients-list"
+  id="ingredients-choice"
+  name="ingredients-choice"
+  [(ngModel)]="selectedValue"
+  (change)="onOptionSelected()"
+/>
+
+<datalist id="ingredients-list">
+  @for (item of defaultIngredients; track $index) {
+  <option value="{{ item }}">{{ item | titlecase }}</option>
+  }
+</datalist>
+
+<button (click)="onOptionSelected()">+</button>
+
+@for (item of userChoice; track $index) {
+<div>
+  {{ item | titlecase }}
+  <button (click)="removeOptionSelected(item)">-</button>
+</div>
+}
+
+<p>Nombre de recette(s) disponible(s) : {{ numberRecipes }}</p>
+
+<app-random-recipe [filters]="userChoice"></app-random-recipe> -->
+
+<label fd-label>Search Ingredients for your recipe</label>
+<fd-multi-input
+  [dropdownValues]="defaultIngredients"
+  placeholder="Search here..."
+  [(ngModel)]="userChoice"
+></fd-multi-input>
+
+<app-random-recipe [filters]="userChoice"></app-random-recipe>

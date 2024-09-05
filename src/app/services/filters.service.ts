@@ -5,33 +5,27 @@ import axios from 'axios';
 @Injectable({
   providedIn: 'root',
 })
-export class RandomService {
-  private apiUrl = environment.apiUrl + 'random';
+export class FiltersService {
+  private apiUrl = environment.apiUrl + 'complexSearch';
   private apiKey = environment.apiKey;
-
-  public recipe: any;
 
   constructor() {}
 
-  async getRandomRecipe(filters: string[]) {
+  async getNumberOfRecipe(ingredients: string[]): Promise<number> {
     try {
       const response = await axios.get(this.apiUrl, {
         params: {
-          'include-tags': filters ? filters.join(',') : '',
+          includeIngredients: ingredients.join(',+'),
         },
         headers: {
           'x-api-key': `${this.apiKey}`,
         },
       });
-      return response;
+      const numberRecipe = Number(response.data.totalResults);
+      return numberRecipe;
     } catch (error) {
       console.error('Error fetching agents', error);
       throw error;
     }
-  }
-
-  public getRecipe() {
-    console.log(this.recipe);
-    return this.recipe?.recipes[0];
   }
 }

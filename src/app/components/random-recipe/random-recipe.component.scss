@@ -1,68 +1,76 @@
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 fd-card {
-    width: 400px;
+  width: 400px;
 }
 
 .fd-card__media.fd-card__media--with-padding {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 hr.dashed {
-    border-top: 3px dashed #bbb;
-  }
+  border-top: 3px dashed #bbb;
+}
 
 .recipeImage {
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .informationRecipe {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 4px;
 }
 
 .informationRecipe .info-item {
-    background-color: rgb(207, 228, 255);
-    border-radius: 12px;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    gap: 5px
+  background-color: rgb(207, 228, 255);
+  border-radius: 12px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .informationRecipe .info-item img {
-    width: 40px;
+  width: 40px;
 }
 
 .informationIngredients {
-    padding: 10px;
+  padding: 10px;
 }
 
 .titleIngredientsContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
 }
 
 .titleIngredientsContainer img {
-    width: 40px;
+  width: 40px;
 }
 
 .listIngredients {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px; 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .itemIngredient {
-    flex: 1 0 calc(50% - 10px);
-    box-sizing: border-box;
-    border-radius: 12px;
-    padding: 4px;
-    background-color:  aliceblue;
-    text-align: center;
-    align-content: center;
+  flex: 1 0 calc(50% - 10px);
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 4px;
+  background-color: aliceblue;
+  text-align: center;
+  align-content: center;
 }
