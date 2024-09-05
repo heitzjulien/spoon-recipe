@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RandomService } from '../../services/random.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { CardModule } from '@fundamental-ngx/core/card';
 import { AvatarComponent, ButtonComponent, TextComponent } from '@fundamental-ngx/core';
 
@@ -11,27 +11,18 @@ import { AvatarComponent, ButtonComponent, TextComponent } from '@fundamental-ng
   templateUrl: './random-recipe.component.html',
   styleUrls: ['./random-recipe.component.scss'],  
   providers: [RandomService],
-  imports: [NgFor, CardModule, AvatarComponent, ButtonComponent, TextComponent]
+  imports: [NgFor, NgIf, AvatarComponent, CardModule, ButtonComponent, TextComponent]
 })
-export class RandomRecipeComponent implements OnInit {
-  recipes: any
-  isDataLoaded = false;
+export class RandomRecipeComponent {
+  recipe: any
 
   constructor(private randomRecipeService: RandomService) {}
 
-  ngOnInit(): void {
-    this.loadRecipe();
-  }
 
   async loadRecipe() {
-    if (this.isDataLoaded) {
-      return;
-    }
-
     try {
-      this.recipes = await this.randomRecipeService.getRandomRecipe();
-      console.log(this.recipes);
-      this.isDataLoaded = true;
+      this.recipe = await this.randomRecipeService.getRandomRecipe();
+      console.log(this.recipe);
     } catch (error) {
       console.error('Erreur lors du chargement des recettes', error);
     }
