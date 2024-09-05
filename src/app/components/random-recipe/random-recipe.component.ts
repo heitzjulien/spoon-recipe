@@ -1,7 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { RandomService } from '../../services/random.service';
-import { FiltersService } from '../../services/filters.service';
-import { NgFor, NgIf } from '@angular/common';
 import { CardModule } from '@fundamental-ngx/core/card';
 import {
   AvatarComponent,
@@ -16,8 +14,6 @@ import {
   styleUrls: ['./random-recipe.component.scss'],
   providers: [RandomService],
   imports: [
-    NgFor,
-    NgIf,
     AvatarComponent,
     CardModule,
     ButtonComponent,

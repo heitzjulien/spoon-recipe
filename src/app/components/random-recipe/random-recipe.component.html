@@ -1,13 +1,8 @@
 <article>
-  <button
-    fd-button
-    fdType="emphasized"
-    label="Load Random Recipe"
-    (click)="loadRecipe()"
-    class="button"
-  ></button>
+  <button fd-button fdType="emphasized" label="Load Random Recipe" (click)="loadRecipe()" class="button"></button>
 
-  <fd-card *ngIf="recipe">
+  @if (recipe) {
+  <fd-card>
     <fd-card-header>
       <fd-card-main-header>
         <h2 fd-card-title>{{ recipe.title }}</h2>
@@ -19,12 +14,7 @@
     </fd-card-header>
     <fd-card-media hasPadding>
       <div fd-card-media-image-container>
-        <img
-          fd-card-media-image
-          src="{{ recipe.image }}"
-          alt="Recipe image"
-          class="recipeImage"
-        />
+        <img fd-card-media-image src="{{ recipe.image }}" alt="Recipe image" class="recipeImage" />
       </div>
     </fd-card-media>
 
@@ -54,14 +44,15 @@
 
       <div class="informationIngredients">
         <div class="listIngredients">
-          <div
-            class="itemIngredient"
-            *ngFor="let ingredient of recipe.extendedIngredients"
-          >
+          @for (ingredient of recipe.extendedIngredients; track $index) {
+          <div class="itemIngredient">
             {{ ingredient.original }}
           </div>
+          }
         </div>
       </div>
     </fd-card-content>
   </fd-card>
+  }
+
 </article>
