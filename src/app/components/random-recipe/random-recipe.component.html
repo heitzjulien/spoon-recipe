@@ -1,57 +1,67 @@
-<fd-card *ngIf="recipe">
-    
+<article>
+  <button
+    fd-button
+    fdType="emphasized"
+    label="Load Random Recipe"
+    (click)="loadRecipe()"
+    class="button"
+  ></button>
+
+  <fd-card *ngIf="recipe">
     <fd-card-header>
-        <fd-card-main-header>
-            <h2 fd-card-title>{{recipe.title}}</h2>
-            <h3 fd-card-subtitle>This recipe if for {{recipe.servings}} {{(recipe.servings > 1) ? "persons" : "person"}}</h3>
-        </fd-card-main-header>
+      <fd-card-main-header>
+        <h2 fd-card-title>{{ recipe.title }}</h2>
+        <h3 fd-card-subtitle>
+          This recipe if for {{ recipe.servings }}
+          {{ recipe.servings > 1 ? "persons" : "person" }}
+        </h3>
+      </fd-card-main-header>
     </fd-card-header>
     <fd-card-media hasPadding>
-        <div fd-card-media-image-container>
-            <img
-                fd-card-media-image
-                src="{{recipe.image}}"
-                alt="Recipe image"
-                class="recipeImage"
-            />
-        </div>
+      <div fd-card-media-image-container>
+        <img
+          fd-card-media-image
+          src="{{ recipe.image }}"
+          alt="Recipe image"
+          class="recipeImage"
+        />
+      </div>
     </fd-card-media>
 
-    <fd-card-content> 
-        <div class="informationRecipe">
-            <div class="info-item">
-                <img src="totalTime.svg" alt="Cooking Time Icon" class="icon">
-                <span>{{ recipe.readyInMinutes }} min</span>
-            </div>
-            <div class="info-item">
-                <img src="preparationTime.svg" alt="Cooking Time Icon" class="icon">
-                <span>{{ recipe.preparationMinutes }} min</span>
-            </div>
-            <div class="info-item">
-                <img src="cookingTime.svg" alt="Cooking Time Icon" class="icon">
-                <span>{{ recipe.cookingMinutes }} min</span>
-            </div>
+    <fd-card-content>
+      <div class="informationRecipe">
+        <div class="info-item">
+          <img src="totalTime.svg" alt="Cooking Time Icon" class="icon" />
+          <span>{{ recipe.readyInMinutes }} min</span>
         </div>
-
-        <hr class="dashed">
-
-        <div class="titleIngredientsContainer">
-            <img src="ingredients.svg" alt="Cooking Time Icon" class="icon">
-            <h3>Ingredients</h3>
+        <div class="info-item">
+          <img src="preparationTime.svg" alt="Cooking Time Icon" class="icon" />
+          <span>{{ recipe.preparationMinutes }} min</span>
         </div>
-        <hr class="dashed">
+        <div class="info-item">
+          <img src="cookingTime.svg" alt="Cooking Time Icon" class="icon" />
+          <span>{{ recipe.cookingMinutes }} min</span>
+        </div>
+      </div>
 
-        <div class="informationIngredients">
-            
+      <hr class="dashed" />
 
-            <div class="listIngredients">
-                <div class="itemIngredient" *ngFor="let ingredient of recipe.extendedIngredients">
-                    {{ingredient.original}}
-                </div>
-            </div>
-        </div> 
+      <div class="titleIngredientsContainer">
+        <img src="ingredients.svg" alt="Cooking Time Icon" class="icon" />
+        <h3>Ingredients</h3>
+      </div>
+      <hr class="dashed" />
+
+      <div class="informationIngredients">
+        <div class="listIngredients">
+          <div
+            class="itemIngredient"
+            *ngFor="let ingredient of recipe.extendedIngredients"
+          >
+            {{ ingredient.original }}
+          </div>
+        </div>
+      </div>
     </fd-card-content>
-
-</fd-card>
-
-<button fd-button fdType="emphasized" label="Load Recipe" (click)="loadRecipe()" ></button>
+  </fd-card>
+</article>
